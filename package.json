@@ -1,0 +1,71 @@
+{
+	"name": "mui-pankod-superplate",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"analyze": "source-map-explorer 'build/static/js/*.js'",
+		"apollo:download-schema": "apollo client:download-schema schema.graphql",
+		"apollo:generate-types": "rm -rf __generated__ && apollo client:codegen --target typescript --outputFlat",
+		"apollo:sync": "pnpm run apollo:download-schema && pnpm run apollo:generate-types",
+		"build": "craco build",
+		"dev": "craco start",
+		"lint": "eslint src --ext .js --max-warnings 0",
+		"lint:fix": "pnpm run lint --fix"
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
+	"eslintConfig": {
+		"extends": [
+			"react-app"
+		]
+	},
+	"dependencies": {
+		"@apollo/client": "3.8.8",
+		"@craco/craco": "7.0.0",
+		"@emotion/react": "11.11.3",
+		"@emotion/styled": "11.11.0",
+		"@mui/icons-material": "5.15.3",
+		"@mui/material": "5.15.3",
+		"@mui/styles": "5.15.3",
+		"@mui/x-data-grid": "6.18.7",
+		"@reduxjs/toolkit": "1.9.7",
+		"graphql": "15.8.0",
+		"i18next": "20.6.1",
+		"jss": "10.10.0",
+		"jss-rtl": "0.3.0",
+		"react": "18.2.0",
+		"react-dom": "18.2.0",
+		"react-i18next": "12.1.5",
+		"react-router": "5.3.4",
+		"react-router-dom": "5.3.4",
+		"source-map-explorer": "2.5.3",
+		"web-vitals": "1.1.2"
+	},
+	"devDependencies": {
+		"@types/react": "18.0.37",
+		"@types/react-dom": "18.0.11",
+		"@types/react-router-dom": "5.3.3",
+		"apollo": "2.34.0",
+		"clean-webpack-plugin": "4.0.0",
+		"eslint": "8.56.0",
+		"eslint-plugin-react": "7.33.2",
+		"eslint-plugin-simple-import-sort": "10.0.0",
+		"prop-types": "15.8.1",
+		"sort-package-json": "2.6.0",
+		"terser-webpack-plugin": "5.3.9"
+	},
+	"engines": {
+		"node": ">= 16.0.0",
+		"npm": ">= 8.0.0"
+	}
+}

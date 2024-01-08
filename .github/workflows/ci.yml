@@ -1,0 +1,32 @@
+name: ci
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+    - name: Setup Node.js and pnpm
+      uses: pnpm/action-setup@v2
+      with:
+        version: 8
+    - run: pnpm install
+    - run: pnpm run build
+    - run: pnpm run lint
